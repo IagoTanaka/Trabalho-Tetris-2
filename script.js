@@ -20,6 +20,7 @@ let board = Array.from({ length: ROWS }, () => Array(COLUMNS).fill(0));
 
 let currentTetromino = getRandomTetromino();
 let position = { x: 4, y: 0 };
+let gameInterval;
 
 function getRandomTetromino() {
   const index = Math.floor(Math.random() * tetrominos.length);
@@ -60,8 +61,7 @@ function moveTetrominoDown() {
     currentTetromino = getRandomTetromino();
     position = { x: 4, y: 0 };
     if (collision()) {
-      alert('Game Over');
-      board = Array.from({ length: ROWS }, () => Array(COLUMNS).fill(0));
+      gameOver();
     }
   }
 }
@@ -119,6 +119,11 @@ function moveTetrominoRight() {
   if (collision()) position.x--;
 }
 
+function gameOver() {
+  clearInterval(gameInterval);
+  alert('Game Over');
+}
+
 document.addEventListener('keydown', (e) => {
   if (e.key === 'ArrowDown') {
     moveTetrominoDown();
@@ -137,4 +142,4 @@ function gameLoop() {
   moveTetrominoDown();
 }
 
-setInterval(gameLoop, 500);
+gameInterval = setInterval(gameLoop, 500);
