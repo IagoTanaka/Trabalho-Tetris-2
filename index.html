@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,23 +7,14 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="game-container">
+    <div class="game-container">
+        <h1>Tetris</h1>
         <canvas id="tetris" width="300" height="600"></canvas>
-        <div id="score-container">
-            <span>Score: <span id="score">0</span></span>
-        </div>
-    </div>
-
-    <!-- Tela de Game Over -->
-    <div id="game-over-screen">
-        <div id="game-over-content">
-            <h1>Game Over!</h1>
-            <p>Pontuação final: <span id="final-score">0</span></p>
-            <button id="restart-button">Reiniciar</button>
+        <div class="controls">
+            <p>Use as setas para mover e girar as peças!</p>
         </div>
     </div>
 
     <script src="script.js"></script>
 </body>
 </html>
-
